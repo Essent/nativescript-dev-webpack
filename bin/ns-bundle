@@ -49,7 +49,7 @@ function execute(options) {
     if (options.command) {
         commands.push(() => runTns(options.command, options.platform));
     } else {
-        commands.shift(() => runTns("prepare", options.platform))
+        commands.push(() => runTnsPrepare(options.platform))
     }
 
     return commands.reduce((current, next) => current.then(next), Promise.resolve());
@@ -91,10 +91,18 @@ function addPlatform(platform) {
 }
 
 function runTns(command, platform) {
+    return runTnsArgs(command, platform, "--bundle", "--disable-npm-install");
+}
+
+function runTnsPrepare(platform) {
+    return runTnsArgs("prepare", platform, "--bundle");
+}
+
+function runTnsArgs(command, platform, ...args) {
     return new Promise((resolve, reject) => {
         console.log(`Running tns ${command}...`);
 
-        spawnChildProcess(true, "tns", command, platform, "--bundle", "--disable-npm-install", ...tnsArgs)
+        spawnChildProcess(true, "tns", command, platform, ...args, ...tnsArgs)
             .then(resolve)
             .catch(throwError);
     });
