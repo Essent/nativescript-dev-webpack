@@ -2,7 +2,7 @@ var sources = require("webpack-sources");
 var fs = require("fs");
 var path = require("path");
 
-var projectDir = path.dirname(path.dirname(__dirname));
+var projectDir = path.dirname(path.dirname(path.dirname(__dirname)));
 var packageJsonPath = path.join(projectDir, "package.json");
 var packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 
@@ -122,5 +122,5 @@ function getAotEntry(entry) {
 }
 
 function getProjectDir() {
-    return path.dirname(path.dirname(__dirname));
+    return path.dirname(path.dirname(path.dirname(__dirname)));
 }

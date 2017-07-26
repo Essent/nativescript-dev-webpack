@@ -5,7 +5,7 @@ const resolve = require("path").resolve;
 
 const getPackageJson = require("../projectHelpers").getPackageJson;
 
-const PROJECT_DIR = resolve(__dirname, "../../../");
+const PROJECT_DIR = resolve(__dirname, "../../../../");
 const packageJson = getPackageJson(PROJECT_DIR);
 
 if (!process.env.npm_config_argv) {
