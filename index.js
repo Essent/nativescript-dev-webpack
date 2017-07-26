@@ -4,7 +4,7 @@ const { existsSync } = require("fs");
 const { getPackageJson, isAngular } = require("./projectHelpers");
 const { sanitize } = require("./utils");
 
-const PROJECT_DIR = path.dirname(path.dirname(__dirname));
+const PROJECT_DIR = path.dirname(path.dirname(path.dirname(__dirname)));
 const APP_DIR = path.join(PROJECT_DIR, "app");
 
 Object.assign(exports, require('./plugins'));

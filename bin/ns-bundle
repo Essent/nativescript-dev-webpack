@@ -6,7 +6,7 @@ const { existsSync } = require("fs");
 const { getPackageJson } = require("../projectHelpers");
 const { isVersionGte } = require("../utils");
 
-const PROJECT_DIR = pathResolve(__dirname, "../../../");
+const PROJECT_DIR = pathResolve(__dirname, "../../../../");
 const packageJson = getPackageJson(PROJECT_DIR);
 
 if (!process.env.npm_config_argv) {
