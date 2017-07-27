@@ -82,7 +82,7 @@ exports.getEntryModule = function () {
 };
 
 exports.getAppPath = function (platform) {
-    var projectDir = path.dirname(path.dirname(__dirname));
+    var projectDir = path.dirname(path.dirname(path.dirname(__dirname)));
 
     if (/ios/i.test(platform)) {
         var appName = path.basename(projectDir);
